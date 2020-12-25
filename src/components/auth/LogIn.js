@@ -3,7 +3,7 @@ import FormErrors from "../FormErrors";
 import Validate from "../utility/FormValidation";
 import { Auth } from "aws-amplify";
 import DashboardLayout from '../../layouts/DashboardLayout';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route,Router, Switch } from 'react-router-dom';
 
 class LogIn extends Component {
   state = {
@@ -38,11 +38,25 @@ class LogIn extends Component {
 
     // AWS Cognito integration here
     try {
-      const user = await Auth.signIn(this.state.username, this.state.password);
-      console.log(user);
-      this.props.auth.setAuthStatus(true);
-      this.props.auth.setUser(user);
-      this.props.history.push("../layouts/DashboardLayout");
+      // const user = await Auth.signIn(this.state.username, this.state.password);
+      // console.log(user);
+      // this.props.auth.setAuthStatus(true);
+      // this.props.auth.setUser(user);
+      // return <Redirect to="../../layouts/DashboardLayout" ></Redirect>
+      // this.props.history.push("../../layouts/DashboardLayout");
+      
+        // return <Redirect to="https://www.google.com"></Redirect>
+      
+  
+     
+        return (
+          <BrowserRouter>
+            <Switch>
+              <Route component={DashboardLayout} />
+            </Switch>
+          </BrowserRouter>
+        );
+      
     }catch(error) {
       // let err = null;
       // !error.message ? err = { "message": error } : err = error;
@@ -52,8 +66,9 @@ class LogIn extends Component {
       //     cognito: err
       //   }
       // });
-      // this.props.history.push(DashboardLayout);
-     
+      // return <Redirect to="/welcome12" ></Redirect>
+      // this.props.history.push("/welcome");
+      // this.props.history.push("../../layouts/DashboardLayout");
       return (
         <BrowserRouter>
           <Switch>
@@ -61,6 +76,8 @@ class LogIn extends Component {
           </Switch>
         </BrowserRouter>
       );
+     
+      
     
     }
   };

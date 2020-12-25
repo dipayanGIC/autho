@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './registerServiceWorker';
 import App from './App';
 import Amplify from "aws-amplify";
-import config from "./config";
+// import config from "./aws-exports";
 
-Amplify.configure({
-    Auth: {
-      mandatorySignIn: true,
-      region: config.cognito.REGION,
-      userPoolId: config.cognito.USER_POOL_ID,
-      userPoolWebClientId: config.cognito.APP_CLIENT_ID
-    }
-  });
+// Amplify.configure({
+//     Auth: {
+//       mandatorySignIn: true,
+//       region: config.cognito.REGION,
+//       userPoolId: config.cognito.USER_POOL_ID,
+//       userPoolWebClientId: config.cognito.APP_CLIENT_ID
+//     }
+//   });
   
 
 ReactDOM.render(<App />, document.getElementById('app'));

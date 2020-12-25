@@ -6,7 +6,10 @@
   "homepage": "http://nicedash.com",
   "copyright": "Copyright 2019 Nice Dash",
   "private": true,
-  "dependencies": {
+  "dependencies": {    
+    "aws-amplify-react": "^3.1.1",
+    "kind-of": "^6.0.3",
+    "lodash": "^4.17.19",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.7.3",
     "classnames": "^2.2.6",

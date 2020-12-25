@@ -29,7 +29,7 @@ export default class Header extends Component {
           strict: false
         })
       ) {
-        name = prop.name;
+        name = "Anlytics";
       }
       return null;
     });
